@@ -42,6 +42,8 @@ Notice the route returns a `token`. We'll add this `token` to a special tab in P
 }
 ```
 
+# ☑️ Check Trello (4/4) - Move signin to DOING
+
 ## Signin
 
 2. **Add a request**:
