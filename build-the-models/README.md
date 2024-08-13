@@ -3,9 +3,11 @@
 ## AAU, I should be able to create a hoot post.
 **✔️ Create the model based on the schema defined in the project ERD**
 
-**⭕ Create a test route and router at `/hoots`**
+**✔️ Create a test route and router at `/hoots`**
 
-**⭕ Test the route in Postman and check the database for a new Hoot**
+**✔️ Define a controller that creates a new Hoot**
+
+**✔️ Test the route in Postman and check the database for a new Hoot**
 
 ### Create the model file `models/hoot.js`
 
@@ -93,4 +95,4 @@ const Hoot = mongoose.model('Hoot', hootSchema);
 module.exports = Hoot;
 ```
 
-# ☑️ Check Trello (1/3) - Create the model based on the schema defined in the project ERD
+# ☑️ Check Trello (1/4) - Create the model based on the schema defined in the project ERD
