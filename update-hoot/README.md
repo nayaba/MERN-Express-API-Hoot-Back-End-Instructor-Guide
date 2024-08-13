@@ -4,17 +4,11 @@
 
 **✔️ Create a `PUT` route and router at `/hoots/:hootId`**
 
-**✔️ Define a controller function which updates the specific Hoot**
+**✔️ Define a controller function which finds a Hoot by its id and updates it**
 
 **✔️ Test the route in Postman**
 
-## Define the route
-
-Our route will listen for `PUT` requests on `'/hoots/:hootId'`:
-
-```
-PUT /hoots/:hootId
-```
+### Define the route
 
 Add the following to `controllers/hoots.js`:
 
@@ -26,29 +20,11 @@ router.put('/:hootId', async (req, res) => {});
 
 > ❗ A user needs to be logged in to update a hoot, so we should define our new route inside the **Protected Routes** section of `controllers/hoots.js`.
 
-> 💡 Remember, in `server.js`, we defined a base path of `/hoots` for our `hootsRouter`. Therefore, we will provide the `router` above with a path of `'/:hootId'`, as this will be appended to the end of what is defined in `server.js`.
+# ☑️ Check Trello (1/3)
 
-## Code the controller function
-
-Let's breakdown what we'll accomplish inside our controller function.
-
-First, we'll retrieve the `hoot` we want to update from the database. We'll do this using our `Hoot` model's `findById()` method.
-
-With our retrieved `hoot`, we need check that this `user` has permission to update the resource. We accomplish this using an `if` condition, comparing the `hoot.author` to `_id` of the user issuing the request (`req.user._id`). Remember, `hoot.author` contains the ObjectId of the `user` who created the `hoot`. If these values do not match, we will respond with a `403` status.
+### Code the controller function
 
 If the `user` has permission to update the resource, we'll call upon our `Hoot` model's `findByIdAndUpdate()` method.
-
-When calling upon `findByIdAndUpdate()`, we pass in three arguments:
-
-- The first is the ObjectId (`req.params.hootId`) by which we will locate the `hoot`.
-
-- The second is the form data (`req.body`) that will be used to update the `hoot` document.
-
-- The third argument (`{ new: true }`) specifies that we want this method to **return the updated document**.
-
-After updating the hoot, we'll append a complete `user` object to the `updatedHoot` document (as we did in our create controller function).
-
-Finally, we issue a JSON response with the `updatedHoot` object.
 
 Add the following to `controllers/hoots.js`:
 
@@ -85,7 +61,9 @@ router.put('/:hootId', async (req, res) => {
 
 > 💡 As an extra layer of protection, we’ll use conditional rendering in our React app to limit access to this functionality so that only the author of a hoot can view the UI elements that allow editing.
 
-## Test the route in Postman
+# ☑️ Check Trello (2/3)
+
+### Test the route in Postman
 
 Now that we have finished the route, let's test it with Postman. We'll do this by sending a `PUT` request to `http://localhost:3000/hoots/:hootId`.
 
@@ -103,10 +81,7 @@ Add the following to the body section in **Postman**.
 }
 ```
 
-Your request should look something like this:
 
-![Update request](./assets/update-req.png)
+After sending the request, you should see the updated `hoot` object issued in the response
 
-After sending the request, you should see the updated `hoot` object issued in the response:
-
-![Update response](./assets/update-res.png)
+# ☑️ Check Trello (3/3)  ✅ - Move delete to DOING
