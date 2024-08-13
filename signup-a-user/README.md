@@ -41,6 +41,7 @@ Notice the route returns a `token`. We'll add this `token` to a special tab in P
     "password": "test"
 }
 ```
+5. Check user collection in MongoDB Atlas to see if our new user was created (is your connection string updated with our database name?)
 
 # ☑️ Check Trello (4/4) - Move signin to DOING
 
