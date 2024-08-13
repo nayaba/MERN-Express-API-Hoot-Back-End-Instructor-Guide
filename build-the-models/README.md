@@ -1,12 +1,10 @@
-# ![Express API - Hoot Back-End - Build the Models](./assets/hero.png)
+# Express API - Hoot Back-End - Build the Models
 
-- define and export a mongoose model for use with an Express API.
+## AAU, I should be able to create a hoot post.
 
-## Create the model file `models/hoot.js`
+### Create the model file `models/hoot.js`
 
 Next we'll add the `models/hoot.js` file.
-
-# ✨ Use the ERD to define the model ✨
 
 Run the following command in your terminal:
 
@@ -15,6 +13,8 @@ touch models/hoot.js
 ```
 
 > 💡 We use a **singular** naming convention for model files, as a single file will always export just one model.
+
+✨ Open the ERD to define the Hoot schema ✨
 
 ## Create the `hootSchema`
 
