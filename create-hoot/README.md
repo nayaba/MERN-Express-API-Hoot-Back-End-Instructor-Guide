@@ -14,16 +14,14 @@ app.post('/hoots', (req, res) => {res.send('The /hoots route is working'});
 
 ### Test the route in Postman
 
-1. Locate the **Add a request** button:
-    - We need to make a new Postman request called **Create**.
+In **Postman**, make a new `POST` request called **Create**.
+ - Change the request type to a **POST** request, and provide the URL that matches the signup route:
 
-    - Change the request type to a **POST** request, and provide the URL that matches the signup route:
+     ```
+     http://localhost:3000/hoots
+     ```
 
-    ```
-    http://localhost:3000/hoots
-    ```
-
-3. Be sure to click the **Save** button
+Be sure to click the **Save** button
 
 ### Create a `hootsRouter`
 
@@ -104,7 +102,6 @@ router.post('/', async (req, res) => {
   try {
     req.body.author = req.user._id;
     const hoot = await Hoot.create(req.body);
-    hoot._doc.author = req.user;
     res.status(201).json(hoot);
   } catch (error) {
     console.log(error);
@@ -113,40 +110,11 @@ router.post('/', async (req, res) => {
 });
 ```
 
-> 💡 When we call Mongoose's `create()` method, the newly created document is not just a plain JavaScript object, but an instance of a **Mongoose document**. Before being converted to JSON, this document adds another layer to the structure of a `hoot`, including a `_doc` property containing the document that was retrieved from MongoDB. Normally, we don't need to concern ourselves with this detail, but because we are modifying the `author` property before issuing a response, we'll need to go through the `_doc` property of `hoot`, to access the actual document.
-
 ## Test the route in Postman
 
 Now that we have finished the route let's test it with Postman. We'll do this by sending a `POST` request to `http://localhost:3000/hoots`.
 
-Recall that our `hootSchema` has the following specifications:
 
-```js
-// models/hoot.js
-
-const hootSchema = new mongoose.Schema(
-  {
-    title: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
-      required: true,
-    },
-    category: {
-      type: String,
-      required: true,
-      enum: ['News', 'Sports', 'Games', 'Movies', 'Music', 'Television'],
-    },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    comments: [commentSchema],
-  },
-  { timestamps: true }
-);
-```
-
-In **Postman**, make a new `POST` request called **Create**.
 
 ![Add request](./assets/add-request.png)
 
