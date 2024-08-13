@@ -1,6 +1,11 @@
 # Express API - Hoot Back-End - Create Hoot
 
 ## AAU, I should be able to create a hoot post.
+**✔️ ~~Create the model based on the schema defined in the project ERD~~**
+
+**✔️ Create a test route and router at `/hoots`**
+
+**✔️ Test the route in Postman and check the database for a new Hoot**
 
 ### Create a test route and router at `/hoots`
 
