@@ -2,7 +2,7 @@
 
 - implement and test a POST route, allowing them to securely add new blog posts
 
-### Add a hoots route and test
+### Create a test route and router at `/hoots`
 
 ```jsx
 // server.js
