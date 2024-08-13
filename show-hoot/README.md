@@ -22,7 +22,7 @@ router.get('/:hootId', async (req, res) => {});
 
 # ☑️ Check Trello (1/3)
 
-## Code the controller function
+### Code the controller function
 
 Add the following to `controllers/hoots.js`:
 
@@ -40,7 +40,7 @@ router.get('/:hootId', async (req, res) => {
 ```
 # ☑️ Check Trello (2/3)
 
-## Test the route in Postman
+### Test the route in Postman
 
 Now that we have finished the route let's test it with Postman. We'll do this by sending a `GET` request to `http://localhost:3000/hoots/:hootId`.
 
