@@ -8,7 +8,7 @@
 **✔️ Test the route in Postman**
 
 
-## ✔️ Create a `GET` route and router at `/hoots/:hootId`
+### Create a `GET` route and router at `/hoots/:hootId`
 
 Inside `controllers/hoots.js`, we'll define a route to find a single `hoot` by `hootId`:
 
