@@ -95,4 +95,4 @@ const Hoot = mongoose.model('Hoot', hootSchema);
 module.exports = Hoot;
 ```
 
-# ☑️ Check Trello (1/4) - Create the model based on the schema defined in the project ERD
+# ☑️ Check Trello (1/4)
