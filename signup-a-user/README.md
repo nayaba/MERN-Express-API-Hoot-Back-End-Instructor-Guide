@@ -2,7 +2,7 @@
 
 - sign up a new user using Postman.
 
-## Overview
+## Sign up
 
 To get started, we'll use Postman and the existing Sign Up functionality provided by the auth template to add a new user to our database. 
 
@@ -18,35 +18,22 @@ Notice the route returns a `token`. We'll add this `token` to a special tab in P
 
 ## Test the route in Postman
 
-In **Postman**, create a new collection called **Hoot**:
+1. In **Postman**, create a new collection called **Hoot**:
 
-![Collection](./assets/collection.png)
+2. After creating the collection, locate the **Add a request** button:
+    - We need to make a new Postman request called **Signup**. Start by updating the fields highlighted below:
 
-With this collection, we'll be able to group a series of Postman requests, and reuse them as necessary. This makes it easier to return to previous requests later. The other advantage relates to Authorization. As discussed earlier, we'll need to include a bearer token on all future requests for `Hoot` resources. By using a collection, all requests included in the collection will be able to share the same token.
+    - Within the **Body** tab, select **raw**, and change the **Text** dropdown to **JSON**. 
 
-After creating the collection, locate the **Add a request** button:
-
-![Add request](./assets/add-request.png)
-
-We need to make a new Postman request called **Signup**. Start by updating the fields highlighted below:
-
-- Within the **Body** tab, select **raw**, and change the **Text** dropdown to **JSON**. 
-
-- Change the request type to a **POST** request, and provide the URL that matches the signup route:
+    - Change the request type to a **POST** request, and provide the URL that matches the signup route:
 
     ```
     http://localhost:3000/users/signup
     ```
 
-After doing this, your Postman interface should look like the following:
+3. Be sure to click the **Save** button:
 
-![Signup](./assets/signup.png)
-
-Finally, be sure to click the **Save** button:
-
-![Save](./assets/save.png)
-
-Add some test account information to the **Body** in **Postman**, as shown below:
+4. Add some test account information to the **Body** in **Postman**, as shown below:
 
 ```json
 {
@@ -55,23 +42,18 @@ Add some test account information to the **Body** in **Postman**, as shown below
 }
 ```
 
-If the request was successful, you should see something like the following response:
+5. Copy the token, **do not include the quotes**.
 
-![Response](./assets/response.png)
+# ☑️ Check Trello (4/4)
 
-We'll be using the `token` issued here in the next few steps, so be sure to *save it somewhere easily accessible*. When you copy the value of the token, **do not include the quotes**.
+## Save the token
 
-![Token](./assets/token.png)
+1. Click on the **Authorization** tab. 
 
-Select your Hoot collection in **Postman**. Click on the **Authorization** tab. 
+    - Set the **Type** to **Bearer Token** 
+    - Add your `token` to the **Token** input field. 
 
-![Auth tab](./assets/auth-tab.png)
-
-Set the **Type** to **Bearer Token** and add your `token` to the **Token** input field. 
-
-![Bearer token](./assets/bearer-token.png)
-
-Afterwards, don't forget to click the **Save button**. 
+2. Afterwards, don't forget to click the **Save button**. 
 
 > 💡 Depending on the width of your **Postman** window, you might need to click the dropdown menu in the screenshot below to access the **Save** option. Alternatively, the **Save** button will be represented by a floppy disk icon.
 
