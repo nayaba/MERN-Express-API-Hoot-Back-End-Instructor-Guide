@@ -74,8 +74,6 @@ Imagine a dropdown menu for selecting a category in a blog post creation form. B
 
 ## Register the model
 
-Now that we've defined our schema, we'll tell Mongoose to create a collection in MongoDB and validate that collection's data using the schema. We do this using the `mongoose.model` method:
-
 ```js
 // models/hoot.js
 
@@ -84,47 +82,10 @@ const Hoot = mongoose.model('Hoot', hootSchema);
 
 ## Export the model
 
-Finally, we'll export the `Hoot` model so that the rest of our application has access to it:
-
 ```js
 // models/hoot.js
 
 module.exports = Hoot;
 ```
 
-## Create the `commentSchema`
-
-The last step is to define a `commentSchema` in `models/hoot.js`. The `commentSchema` will be embedded inside `hootSchema`, meaning each `hoot` document will contain its own associated comments. These comment subdocuments will be accessible through a `comments` property on a `hoot`.
-
-Much like the `hootSchema`, the `commentSchema` will store a reference to the `author` and include `createdAt` and `updatedAt` `timestamps`.
-
-Add the following to `models/hoot.js`:
-
-```js
-// models/hoot.js
-
-const commentSchema = new mongoose.Schema(
-  {
-    text: {
-      type: String,
-      required: true
-    },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-  },
-  { timestamps: true }
-);
-```
-
-> 💡 We don't need to compile the `commentSchema` into a model, or export it, as it is embedded inside the parent `hootSchema`. As a result, any functionality related to the `comments` resource will need to go through the `Hoot` first.
-
-Next we'll need to update the `hootSchema` with a `comments` property:
-
-```js
-// models/hoot.js
-
-    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    comments: [commentSchema]
-  },
-  { timestamps: true }
-);
-```
+# ☑️ Check Trello (1/?)
