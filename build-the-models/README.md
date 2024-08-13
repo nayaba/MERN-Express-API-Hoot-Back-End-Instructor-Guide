@@ -56,6 +56,22 @@ const hootSchema = new mongoose.Schema(
 
 > 💡 Notice this inclusion of `{ timestamps: true }`. This will give our `hoot` documents `createdAt` and `updatedAt` properties. We can use the `createdAt` property when we want to display the date a hoot post was made.
 
+### Introducing Enum
+
+- **What is Enum?**
+  - `Enum`, short for "enumeration," is a special data type that restricts a variable to have one of only a few predefined values.
+  - Think of it as a way to ensure that a property can only be set to a limited set of possible values, which helps maintain data integrity and consistency.
+
+- **Why Use Enum for Category?**
+  - By using an enum for the `category` property, we can limit the values to a specific list, such as `['News', 'Sports', 'Games', 'Movies', 'Music', 'Television']`.
+  - This restriction ensures that users or developers cannot mistakenly assign a category outside of these predefined options.
+
+
+### Real-World Analogy
+
+Imagine a dropdown menu for selecting a category in a blog post creation form. By using an enum, you ensure that the dropdown only offers valid categories, preventing users from entering arbitrary text and maintaining consistency across all posts.  (You might think what's the point of doing this if you make a drop down menu on your front end, but ee're keeping in mind hackers like Denis who might manipulate our front end)
+
+
 ## Register the model
 
 Now that we've defined our schema, we'll tell Mongoose to create a collection in MongoDB and validate that collection's data using the schema. We do this using the `mongoose.model` method:
