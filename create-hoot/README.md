@@ -79,19 +79,9 @@ app.use('/hoots', hootsRouter);
 
 ### Test the route in Postman
 
-# ☑️ Check Trello (2/)
+# ☑️ Check Trello (2/3)
 
 ## Code the controller function
-
-Let's breakdown what we'll accomplish inside our controller function.
-
-First, before creating a `hoot`, we'll append `req.user._id` to `req.body.author`. This updates the form data that will be used to create the resource, and ensures that the logged in user is marked as the `author` of a `hoot`.
-
-Next, we'll call `create()` on our `Hoot` model, and pass in `req.body`. The `create()` method will return a new `hoot` document. The `author` property of this document **will only contain an ObjectId**, as the data has not yet been populated. In lieu of the `populate()` method, we'll append a complete `user` object to the `hoot` document, as `user` is already accessible on our request object (`req`).
-
-> 💡 Without this step, newly submitted hoots on the client-side would not be able to immediately render information about the author.
-
-Once the new `hoot` is created, we'll send a JSON response with the new `hoot` object.
 
 Add the following to `controllers/hoots.js`:
 
@@ -100,6 +90,7 @@ Add the following to `controllers/hoots.js`:
 
 router.post('/', async (req, res) => {
   try {
+    // logged in user is marked as the `author` of a `hoot`
     req.body.author = req.user._id;
     const hoot = await Hoot.create(req.body);
     res.status(201).json(hoot);
@@ -115,7 +106,7 @@ Now that we're using the Hoot Model, be sure to import it at the top:
 const Hoot = require('../models/hoot.js');
 ```
 
-## Test the route in Postman
+### Test the route in Postman
 
 Now that we have finished the route let's test it with Postman. We'll do this by sending a `POST` request to `http://localhost:3000/hoots`.
 
@@ -129,10 +120,7 @@ Within the **Body** tab, select **raw**, and change the **Text** dropdown to **J
 }
 ```
 
-Your request in **Postman** should look something like this. Note the changed values highlighted below, and don’t forget to save:
+### Check MongoDB for our newly created Hoot
 
-![Request](./assets/request.png)
 
-If your request was successful, you should see something like the response below:
-
-![Response](./assets/response.png)
+# ☑️ Check Trello (3/3) ✅ - Move read a list to DOING
