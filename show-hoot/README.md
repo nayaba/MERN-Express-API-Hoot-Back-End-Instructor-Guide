@@ -20,13 +20,9 @@ router.get('/:hootId', async (req, res) => {});
 
 > ❗ A user needs to be logged in to view hoot details, so we should define our new route inside the **Protected Routes** section of `controllers/hoots.js`.
 
+# ☑️ Check Trello (1/3)
+
 ## Code the controller function
-
-Let's breakdown what we'll accomplish inside our controller function.
-
-We'll call upon our `Hoot` model's `findById()` method and pass in `req.params.hootId`. We'll also call `populate()` on the end of our query to populate the `author` property of the `hoot`.
-
-Once the new `hoot` is retrieved, we'll send a JSON response with the `hoot` object.
 
 Add the following to `controllers/hoots.js`:
 
@@ -42,6 +38,7 @@ router.get('/:hootId', async (req, res) => {
   }
 });
 ```
+# ☑️ Check Trello (2/3)
 
 ## Test the route in Postman
 
@@ -57,6 +54,6 @@ Afterwards, your Postman URL should look something like this:
 http://localhost:3000/hoots/61b63d2e397b1f34f5861ebf
 ```
 
-If the request was successful, your response will include a single `hoot` object like the example below:
+If the request was successful, your response will include a single `hoot` object.
 
-![Show](./assets/show.png)
+☑️ Check Trello (3/3) ✅ - Move update a single hoot to DOING
