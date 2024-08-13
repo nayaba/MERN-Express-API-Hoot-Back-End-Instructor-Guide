@@ -110,27 +110,14 @@ router.post('/', async (req, res) => {
 });
 ```
 
+Now that we're using the Hoot Model, be sure to import it at the top:
+```js
+const Hoot = require('../models/hoot.js');
+```
+
 ## Test the route in Postman
 
 Now that we have finished the route let's test it with Postman. We'll do this by sending a `POST` request to `http://localhost:3000/hoots`.
-
-
-
-![Add request](./assets/add-request.png)
-
-> ❗ Be sure to add this request to your **Hoot** collection.
-
-Add the following URL:
-
-```
-http://localhost:3000/hoots
-```
-
-Since this request requires authentication, we'll need to give **Postman** access to our token from the previous step.
-
-Select the **Authorization** tab, and make sure the **Type** is set to **Inherit auth from parent**.
-
-![Auth](./assets/auth.png)
 
 Within the **Body** tab, select **raw**, and change the **Text** dropdown to **JSON**. Next, add the following test data to the body:
 
