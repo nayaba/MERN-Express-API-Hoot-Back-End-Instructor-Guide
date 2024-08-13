@@ -10,7 +10,18 @@
 app.post('/hoots', (req, res) => {res.send('The /hoots route is working'});
 ```
 
-## Check postman
+## Test the route in Postman
+
+1. Locate the **Add a request** button:
+    - We need to make a new Postman request called **Create**.
+
+    - Change the request type to a **POST** request, and provide the URL that matches the signup route:
+
+    ```
+    http://localhost:3000/hoots
+    ```
+
+3. Be sure to click the **Save** button
 
 ## Create a `hootsRouter`
 
