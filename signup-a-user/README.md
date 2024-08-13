@@ -78,4 +78,4 @@ Notice the route returns a `token`. We'll add this `token` to a special tab in P
     - Add your `token` to the **Token** input field. 
     - Moving forward, our requests should inherit auth from parent.
 
-# ☑️ Check Trello (4/4)
+# ☑️ Check Trello (1/1) - Move create a hoot to DOING
