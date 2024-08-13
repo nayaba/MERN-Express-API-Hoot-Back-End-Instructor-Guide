@@ -31,12 +31,11 @@ touch controllers/hoots.js
 
 Add the following boilerplate to `controllers/hoots.js`.
 
-```jsx
+```js
 // controllers/hoots.js
 
 const express = require('express');
 const verifyToken = require('../middleware/verify-token.js');
-const Hoot = require('../models/hoot.js');
 const router = express.Router();
 
 // ========== Public Routes ===========
@@ -46,6 +45,14 @@ const router = express.Router();
 router.use(verifyToken);
 
 module.exports = router;
+```
+
+Cut the post route from server.js and change app to router
+```js
+//app.post becomes router.post
+router.post('/hoots', (req, res) => {
+    res.send('The /hoots route is working')
+})
 ```
 
 In `server.js`, let's import the `hootsRouter` and add it to our `'/hoots'` route.
@@ -65,6 +72,9 @@ And mount the router:
 
 app.use('/hoots', hootsRouter);
 ```
+## Test the route in Postman
+
+# ☑️ Check Trello (2/) 
 
 ## Define the route
 
