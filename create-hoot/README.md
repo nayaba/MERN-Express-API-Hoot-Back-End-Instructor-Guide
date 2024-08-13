@@ -2,8 +2,6 @@
 
 ## AAU, I should be able to create a hoot post.
 
-- implement and test a POST route, allowing them to securely add new blog posts
-
 ### Create a test route and router at `/hoots`
 
 ```jsx
