@@ -1,12 +1,12 @@
 # Express API - Hoot Back-End - Update Comment
 
-## AAU, I should be able to read a list of all hoots.
+## As the author of a comment, I should be able to delete that comment.
 
 **✔️ Create a `PUT` route and router at `/hoots/:hootId/comments/:commentId`**
 
 **✔️ Define a controller function which finds the comment by its id and updates it**
 
-**✔️ Test the route in Postman**
+**✔️ Test the route in Postman and check the MongoDB database**
 
 ### Define the route
 
