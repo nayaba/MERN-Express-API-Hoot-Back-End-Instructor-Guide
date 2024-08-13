@@ -1,19 +1,14 @@
 # Express API - Hoot Back-End - Delete Hoot
 
-## AAU, I should be able to read a list of all hoots.
+## As the author of a hoot, I should be able to delete that hoot.
 
-**✔️ Create a `GET` route and router at `/hoots`**
+**✔️ Create a `DELETE` route and router at `/hoots/:hootId`**
 
-**✔️ Define a controller function which finds all the Hoots**
+**✔️ Define a controller function which finds a Hoot by its id and deletes it**
 
-**✔️ Test the route in Postman**
-## Define the route
+**✔️ Test the route in Postman and check the MongoDB database**
 
-Our route will listen for `DELETE` requests on `'/hoots/:hootId'`:
-
-```
-DELETE /hoots/:hootId
-```
+### Define the route
 
 Add the following to `controllers/hoots.js`:
 
@@ -23,21 +18,11 @@ router.delete('/:hootId', async (req, res) => {});
 
 > ❗ A user needs to be logged in to delete a hoot, so we should define our new route inside the **Protected Routes** section of `controllers/hoots.js`.
 
-> 💡 Remember, in `server.js`, we defined a base path of `/hoots` for our `hootsRouter`. Therefore, we will provide the `router` above with a path of `'/:hootId'`, as this will be appended to the end of what is defined in `server.js`.
+# ☑️ Check Trello (1/3)
 
-## Code the controller function
-
-Let's breakdown what we'll accomplish inside our controller function.
-
-First, we'll retrieve the `hoot` we want to delete from the database. We'll do this using our `Hoot` model's `findById()` method.
-
-With our retrieved `hoot`, we need check that this `user` has permission to delete the resource. We accomplish this using an `if` condition, comparing the `hoot.author` to `_id` of the user issuing the request (`req.user._id`). Remember, `hoot.author` contains the ObjectId of the `user` who created the `hoot`. If these values do not match, we respond with a `403` _Forbidden_ status.
+### Code the controller function
 
 If the `user` has permission to delete the resource, we call upon our `Hoot` model's `findByIdAndDelete()` method.
-
-The `findByIdAndDelete()` accepts an ObjectId (`req.params.hootId`), used to locate the `hoot` we wish to remove from the database.
-
-Finally, we issue a JSON response with the `deletedHoot` object.
 
 ```js
 // controllers/hoots.js
@@ -60,7 +45,9 @@ router.delete('/:hootId', async (req, res) => {
 
 > 💡 As an extra layer of protection, we’ll use conditional rendering in our React app to limit access to this functionality so that only the author of a hoot can view the UI element for deleting.
 
-## Test the route in Postman
+# ☑️ Check Trello (2/3)
+
+### Test the route in Postman
 
 Now that we have finished the route let's test it with Postman. We'll do this by sending a `DELETE` request to `http://localhost:3000/hoots/:hootId`.
 
@@ -72,10 +59,8 @@ Your Postman URL should look something like the following:
 http://localhost:3000/hoots/61b63d2e397b1f34f5861ebf
 ```
 
-And your request in **Postman** should look something like this:
-
-![Delete](./assets/delete.png)
-
 After sending the request, you should see the deleted hoot object as a response.
 
 Congratulations! 🎉 We are finished building out **CRUD** functionality for `hoots`!
+
+# ☑️ Check Trello (3/3)  ✅ - Move add a comment to DOING
