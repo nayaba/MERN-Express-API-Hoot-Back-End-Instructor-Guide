@@ -14,10 +14,10 @@ In this module, students will build a backend for the Hoot blogging platform usi
 
 | Lesson                                             | Skills                                                                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| [Setup](./setup/README.md)                         | Setting up the development environment                                                                              |
 | [Setting the Stage](./setting-the-stage/README.md) | Understand the architecture and functional requirements of building a secure Express API for a blogging application |
-| [Build the Models](./build-the-models/README.md)   | Define and export a mongoose model for use with an Express API                                                      |
+| [Setup](./setup/README.md)                         | Setting up the development environment                                                                              |
 | [Sign Up a User](./signup-a-user/README.md)        | Sign up a new user using Postman                                                                                    |
+| [Build the Models](./build-the-models/README.md)   | Define and export a mongoose model for use with an Express API                                                      |
 | [Create Hoot](./create-hoot/README.md)             | Create a `POST` route to add new hoot blog posts to the database                                                    |
 | [Index Hoots](./index-hoots/README.md)             | Create a `GET` route to retrieve all hoot blog posts from the database                                              |
 | [Show Hoot](./show-hoot/README.md)                 | Create a `GET` route to retrieve a specific hoot blog post from the database by id                                  |
