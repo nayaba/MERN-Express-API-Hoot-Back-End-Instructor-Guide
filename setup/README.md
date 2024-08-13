@@ -27,6 +27,8 @@ Once we have the repository on our machines, we can change the name of the direc
 mv express-api-jwt-auth-template express-api-hoot-back-end
 ```
 
+# ☑️ Check trello
+
 Next, `cd` into your renamed directory:
 
 ```bash
@@ -40,6 +42,8 @@ rm -rf .git
 ```
 
 > Removing the `.git` info is important as this is just a starter template provided by GA. You do not need the existing git history for this project.
+
+# ☑️ Check trello
 
 ## GitHub setup
 
@@ -67,6 +71,7 @@ Open the project's folder in your code editor:
 ```bash
 code .
 ```
+# ☑️ Check trello
 
 ## Install dependencies
 
