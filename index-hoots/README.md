@@ -21,6 +21,8 @@ router.get('/', async (req, res) => {});
 
 > ❗ A user needs to be logged in to view a list of hoots, so we should define our new route inside the **Protected Routes** section of `controllers/hoots.js`.
 
+# ☑️ Check Trello (1/3)
+
 ## Code the controller function
 
 Add the following to `controllers/hoots.js`:
@@ -39,6 +41,7 @@ router.get('/', async (req, res) => {
   }
 });
 ```
+# ☑️ Check Trello (2/3)
 
 ## Test the route in Postman
 
@@ -54,4 +57,4 @@ http://localhost:3000/hoots
 
 If your request was successful, the response will include an array of `hoot` objects, with a populated `author` property inside each `hoot` object:
 
-![Index response](./assets/index.png)
+# ☑️ Check Trello (3/3)  ✅ - Move view a single hoot to DOING
