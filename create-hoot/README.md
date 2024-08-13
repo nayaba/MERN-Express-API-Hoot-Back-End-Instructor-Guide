@@ -1,4 +1,6 @@
-# ![Express API - Hoot Back-End - Create Hoot](./assets/hero.png)
+# Express API - Hoot Back-End - Create Hoot
+
+## AAU, I should be able to create a hoot post.
 
 - implement and test a POST route, allowing them to securely add new blog posts
 
