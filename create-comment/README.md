@@ -2,11 +2,50 @@
 
 ## AAU, I should be able to create a comment and add it to a specific hoot.
 
-**✔️ Create a `GET` route and router at `/hoots`**
+**✔️ Create the model based on the schema defined in the project ERD**
 
-**✔️ Define a controller function which finds all the Hoots**
+**✔️ Create a `POST` route and router at `/hoots/:hootId/comments`**
 
-**✔️ Test the route in Postman**
+**✔️ Define a controller function which creates a Comment**
+
+**✔️ Test the route in Postman and check the MongoDB database**
+
+## Create the `commentSchema`
+
+The last step is to define a `commentSchema` in `models/hoot.js`. The `commentSchema` will be embedded inside `hootSchema`, meaning each `hoot` document will contain its own associated comments. These comment subdocuments will be accessible through a `comments` property on a `hoot`.
+
+Much like the `hootSchema`, the `commentSchema` will store a reference to the `author` and include `createdAt` and `updatedAt` `timestamps`.
+
+Add the following to `models/hoot.js`:
+
+```js
+// models/hoot.js
+
+const commentSchema = new mongoose.Schema(
+  {
+    text: {
+      type: String,
+      required: true
+    },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  },
+  { timestamps: true }
+);
+```
+
+> 💡 We don't need to compile the `commentSchema` into a model, or export it, as it is embedded inside the parent `hootSchema`. As a result, any functionality related to the `comments` resource will need to go through the `Hoot` first.
+
+Next we'll need to update the `hootSchema` with a `comments` property:
+
+```js
+// models/hoot.js
+
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    comments: [commentSchema]
+  },
+  { timestamps: true }
+);
+```
 ## Define the route
 
 Our route will listen for `POST` requests on `/hoots/:hootId/comments`:
