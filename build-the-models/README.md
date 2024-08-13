@@ -1,46 +1,12 @@
 # ![Express API - Hoot Back-End - Build the Models](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to define and export a mongoose model for use with an Express API.
-
-## Overview
-
-In this lesson, we'll define the models necessary for our application. The resources in our application will include a `User` model (included in our starter code), a `Hoot` model, and a `commentSchema`, embedded inside the `Hoot` model.
-
-## User model
-
-Take a moment to review the existing `userSchema`, as we'll make use of the `User` resource throughout our application. 
-
-```js
-// models/user.js
-
-const mongoose = require('mongoose');
-
-const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    hashedPassword: {
-        type: String,
-        required: true
-    },
-});
-
-userSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-        delete returnedObject.hashedPassword;
-    }
-});
-
-module.exports = mongoose.model('User', userSchema);
-```
-
-Thanks to the `verifyToken` middleware function, all protected routes in our application will have access to an object representing the logged in `user`, through the `req` object. For our purposes, the most relevant properties on the `user` object will be its ObjectId (`_id`) and the `username`. Additionally, the `User` model will be ***referenced*** by `hoot` documents.
-
+- define and export a mongoose model for use with an Express API.
 
 ## Create the model file `models/hoot.js`
 
 Next we'll add the `models/hoot.js` file.
+
+# ✨ Use the ERD to define the model ✨
 
 Run the following command in your terminal:
 
@@ -61,14 +27,6 @@ const mongoose = require('mongoose');
 ```
 
 Next we'll define the schema, which will act as a blueprint for the shape of `hoot` data in our database.
-
-Our `hootSchema` will consist of a `title` property, a `text` property, and a `category` property, all `required`, with a `type` of `String`. The `category` property will differ slightly from the others, here we will use `enum` to limit its allowed values to the following:
-
-```js
-['News', 'Sports', 'Games', 'Movies', 'Music', 'Television']
-```
-
-The `hootSchema` will also have an `author` property, which will act as a reference to the `User` who created the `hoot`.
 
 Update `models/hoot.js` with the following:
 
