@@ -1,36 +1,12 @@
 # ![Express API - Hoot Back-End - Signup a User](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to sign up a new user using Postman.
+- sign up a new user using Postman.
 
 ## Overview
 
 To get started, we'll use Postman and the existing Sign Up functionality provided by the auth template to add a new user to our database. 
 
-Before diving into Postman, let's take a moment to review a few relevant pieces of code for signing up a user.
-
-In `server.js`, you'll notice that the `usersRouter` is mounted with a base path of `/users`. This means all routes within `usersRouter` will begin with `/users`:
-
-```js
-// server.js
-
-app.use('/users', usersRouter);
-```
-
-Take note of the `/signup` route defined in `controllers/users.js`:
-
-```js
-// controllers/users.js
-
-router.post('/signup', async (req, res) => {...});
-```
-
-As a result, with Postman we'll make requests to the following:
-
-```
-POST /users/signup
-```
-
-The last detail to take note of is the response (`res`) issued by our signup controller:
+Before diving into Postman, let's take note of the response (`res`) issued by our signup controller:
 
 ```js
 // controllers/users.js
