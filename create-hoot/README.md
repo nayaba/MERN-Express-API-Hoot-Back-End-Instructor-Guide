@@ -52,10 +52,14 @@ module.exports = router;
 Cut our route from server.js and make some adjustments
 ```js
 // app ---> router and '/hoots' ---> '/'
+// ========= Protected Routes =========
+router.use(verifyToken)
 router.post('/', (req, res) => {
     res.send('The /hoots route is working')
 })
 ```
+
+> 🏆 Any route that requires auth should go below `router.use(verifyToken)`. These are our **Protected Routes**. A user needs to be logged in to create a hoot, so we should define our new route inside the **Protected Routes** section of `controllers/hoots.js`.
 
 In `server.js`, let's import the `hootsRouter` and add it to our `'/hoots'` route.
 
@@ -78,30 +82,6 @@ app.use('/hoots', hootsRouter);
 ### Test the route in Postman
 
 # ☑️ Check Trello (2/)
-
-## Define the route
-
-Next we'll define a route that listens for `POST` requests on `'/hoots'`:
-
-```
-POST /hoots
-```
-
-Add the following to `controllers/hoots.js`:
-
-```jsx
-// controllers/hoots.js
-
-// ========= Protected Routes =========
-
-router.use(verifyToken);
-
-router.post('/', async (req, res) => {});
-```
-
-> 🏆 Any route that requires auth should go below `router.use(verifyToken)`. These are our **Protected Routes**. A user needs to be logged in to create a hoot, so we should define our new route inside the **Protected Routes** section of `controllers/hoots.js`.
-
-> 💡 In `server.js`, we defined a base path of `/hoots` for our `hootsRouter`. Therefore, we will provide the `router` above with a path of `/`, as this will be appended to the end of what is defined in `server.js`.
 
 ## Code the controller function
 
