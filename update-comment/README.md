@@ -1,6 +1,6 @@
 # Express API - Hoot Back-End - Update Comment
 
-## As the author of a comment, I should be able to delete that comment.
+## As the author of a comment, I should be able to update that comment.
 
 **✔️ Create a `PUT` route and router at `/hoots/:hootId/comments/:commentId`**
 
