@@ -5,6 +5,8 @@
 
 **✔️ Create a test route and router at `/hoots`**
 
+**✔️ Define a controller that creates a new Hoot**
+
 **✔️ Test the route in Postman and check the database for a new Hoot**
 
 ### Create a test route and router at `/hoots`
@@ -82,9 +84,9 @@ app.use('/hoots', hootsRouter);
 
 ### Test the route in Postman
 
-# ☑️ Check Trello (2/3)
+# ☑️ Check Trello (2/4)
 
-### Code the controller function
+### Define the controller function
 
 Add the following to `controllers/hoots.js`:
 
@@ -109,6 +111,8 @@ Now that we're using the Hoot Model, be sure to import it at the top:
 const Hoot = require('../models/hoot.js');
 ```
 
+# ☑️ Check Trello (3/4)
+
 ### Test the route in Postman
 
 Now that we have finished the route let's test it with Postman. We'll do this by sending a `POST` request to `http://localhost:3000/hoots`.
@@ -126,4 +130,4 @@ Within the **Body** tab, select **raw**, and change the **Text** dropdown to **J
 ### Check MongoDB for our newly created Hoot
 
 
-# ☑️ Check Trello (3/3) ✅ - Move read a list to DOING
+# ☑️ Check Trello (4/4) ✅ - Move read a list to DOING
