@@ -1,7 +1,14 @@
-# ![Express API - Hoot Back-End - Setup](./assets/hero.png)
+# Express API - Hoot Back-End - Setup
 
-# ✨ As a guest, I should be able to create an account. ✨
+## As a guest, I should be able to create an account.
 
+**✔️ Clone the JWT Auth Template**
+
+**✔️ Remove .git**
+
+**✔️ Create a new git repo**
+
+**✔️ Test the signup route in Postman**
 
 ## Setup
 
