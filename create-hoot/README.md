@@ -79,7 +79,7 @@ app.use('/hoots', hootsRouter);
 
 # ☑️ Check Trello (2/3)
 
-## Code the controller function
+### Code the controller function
 
 Add the following to `controllers/hoots.js`:
 
