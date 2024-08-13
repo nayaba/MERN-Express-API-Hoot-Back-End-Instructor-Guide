@@ -2,7 +2,7 @@
 
 - implement and test a POST route, allowing them to securely add new blog posts
 
-## Add a hoots route and test
+### Add a hoots route and test
 
 ```jsx
 // server.js
@@ -10,7 +10,7 @@
 app.post('/hoots', (req, res) => {res.send('The /hoots route is working'});
 ```
 
-## Test the route in Postman
+### Test the route in Postman
 
 1. Locate the **Add a request** button:
     - We need to make a new Postman request called **Create**.
@@ -23,7 +23,7 @@ app.post('/hoots', (req, res) => {res.send('The /hoots route is working'});
 
 3. Be sure to click the **Save** button
 
-## Create a `hootsRouter`
+### Create a `hootsRouter`
 
 ```bash
 touch controllers/hoots.js
@@ -31,7 +31,7 @@ touch controllers/hoots.js
 
 Add the following boilerplate to `controllers/hoots.js`.
 
-```js
+```jsx
 // controllers/hoots.js
 
 const express = require('express');
@@ -47,10 +47,10 @@ router.use(verifyToken);
 module.exports = router;
 ```
 
-Cut the post route from server.js and change app to router
+Cut our route from server.js and make some adjustments
 ```js
-//app.post becomes router.post
-router.post('/hoots', (req, res) => {
+// app ---> router and '/hoots' ---> '/'
+router.post('/', (req, res) => {
     res.send('The /hoots route is working')
 })
 ```
@@ -72,9 +72,10 @@ And mount the router:
 
 app.use('/hoots', hootsRouter);
 ```
-## Test the route in Postman
 
-# ☑️ Check Trello (2/) 
+### Test the route in Postman
+
+# ☑️ Check Trello (2/)
 
 ## Define the route
 
