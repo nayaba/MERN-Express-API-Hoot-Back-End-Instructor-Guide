@@ -2,7 +2,7 @@
 
 ## AAU, I should be able to create a comment and add it to a specific hoot.
 
-**✔️ Create the model based on the schema defined in the project ERD**
+**✔️ Create the model based on the schema defined in the project ERD & embed it in the Hoot model**
 
 **✔️ Create a `POST` route and router at `/hoots/:hootId/comments`**
 
@@ -11,10 +11,6 @@
 **✔️ Test the route in Postman and check the MongoDB database**
 
 ## Create the `commentSchema`
-
-The last step is to define a `commentSchema` in `models/hoot.js`. The `commentSchema` will be embedded inside `hootSchema`, meaning each `hoot` document will contain its own associated comments. These comment subdocuments will be accessible through a `comments` property on a `hoot`.
-
-Much like the `hootSchema`, the `commentSchema` will store a reference to the `author` and include `createdAt` and `updatedAt` `timestamps`.
 
 Add the following to `models/hoot.js`:
 
@@ -33,8 +29,6 @@ const commentSchema = new mongoose.Schema(
 );
 ```
 
-> 💡 We don't need to compile the `commentSchema` into a model, or export it, as it is embedded inside the parent `hootSchema`. As a result, any functionality related to the `comments` resource will need to go through the `Hoot` first.
-
 Next we'll need to update the `hootSchema` with a `comments` property:
 
 ```js
@@ -46,17 +40,13 @@ Next we'll need to update the `hootSchema` with a `comments` property:
   { timestamps: true }
 );
 ```
-## Define the route
 
-Our route will listen for `POST` requests on `/hoots/:hootId/comments`:
+# ☑️ Check Trello (1/4)
 
-```
-POST /hoots/:hootId/comments
-```
+
+### Define the route
 
 We'll need to include the `hootId` as a parameter here, so that the new comment can be added to the appropriate **parent document**.
-
-Add the following to `controllers/hoots.js`:
 
 ```js
 // controllers/hoots.js
@@ -66,15 +56,15 @@ router.post('/:hootId/comments', async (req, res) => {});
 
 > ❗ A user needs to be logged in to create a comment, so we should define our new route inside the **Protected Routes** section of `controllers/hoots.js`.
 
-## Code the controller function
+# ☑️ Check Trello (2/4)
 
-Let's breakdown what we'll accomplish inside our controller function.
+### Code the controller function
 
-As we did when creating hoots, we'll first append `req.user._id` to `req.body.author`. This updates the form data that will be used to create the resource, and ensures that the logged in user is marked as the `author` of a `comment`.
+We'll first append `req.user._id` to `req.body.author`. 
 
-Next we'll call upon the `Hoot` model's `findById()` method. The retrieved `hoot` is the parent document we wish to add a comment to.
+Next we'll call upon the parent Hoot with the `findById()` method.
 
-Because `comments` are embedded inside `hoot`'s, the `commentSchema` has not been compiled into a model. As a result, we cannot call upon the `create()` method to produce a new comment. Instead, we'll use the `Array.prototype.push()` method, provide it with `req.body`, and add the new comment data to the `comments` array inside the `hoot` document.
+Because `comments` are embedded, we cannot call upon the `create()` method. Instead, we'll use the `Array.prototype.push()` method on `req.body`, and add the comment to the `comments` array.
 
 To save the comment to our database, we call upon the `save()` method of the `hoot` document instance.
 
@@ -105,7 +95,9 @@ router.post('/:hootId/comments', async (req, res) => {
 });
 ```
 
-## Test the route in Postman
+# ☑️ Check Trello (3/4)
+
+### Test the route in Postman
 
 Create a new request called **Create Comment** and set the request type to `POST`.
 
@@ -125,10 +117,4 @@ Add the following to the body in **Postman.** Within the **Body** tab, select **
 }
 ```
 
-After completing the steps above, your request in **Postman** should look something like this:
-
-![Create comment request](./assets/comment-req.png)
-
-A successful response will look like the following:
-
-![Create comment response](./assets/comment-res.png)
+# ☑️ Check Trello (4/4)  ✅ - Move view a single comment to DOING
